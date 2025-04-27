@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workflow Kanban</title>
+  
+
+  <link rel="stylesheet" href="style.css" />
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- TITULO-->
+     <header><h1>Workflow Kanban</h1></header>
+  <!-- Botões principais -->
+  <div class="botoes-principais">
+    <button id="openModal">Adicionar Tarefa</button>
+    <button id="openFilterModal">Filtrar Tarefas</button>
+  </div>
+
+  <!-- Modal para adicionar tarefa -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <form id="cardForm">
+        <label for="title">Título:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="content">Conteúdo:</label><br>
+        <textarea id="content" name="content" required></textarea><br><br>
+
+        <label for="priority">Prioridade:</label><br>
+        <select id="priority" class="priority" name="priority">
+          <option value="baixa">Baixa</option>
+          <option value="media">Média</option>
+          <option value="alta">Alta</option>
+          <option value="urgente">Urgente</option>
+        </select><br><br>
+
+        <label for="dataentrega">Data de entrega:</label><br>
+        <input id="dataentrega" type="date" name="dataentrega" required><br><br>
+
+        <button type="submit">Adicionar</button>
+        <button type="button" id="closeModalBtn">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal para filtragem -->
+  <div id="filterModal" class="modal">
+    <div class="modal-content">
+      <span id="closeFilterModal" class="close">&times;</span>
+      <form id="filterCardForm">
+        <label for="estado">Estado Atual:</label><br>
+        <select class="estado" id="estado">
+          <option value="sem_filtro">Sem Filtro</option>
+          <option value="aberto">Em Aberto</option>
+          <option value="andamento">Em Andamento</option>
+          <option value="concluido">Concluído</option>
+          <option value="done">Done Done</option>
+        </select><br><br>
+
+        <label for="filterTitle">Nome:</label><br>
+        <input type="text" id="filterTitle" name="filterTitle"><br><br>
+
+        <button type="submit">Confirmar</button>
+        <button type="button" id="cancelFilterModal">Cancelar</button>
+      </form>
+
+      <div id="filterResults" style="margin-top: 20px; max-height: 300px; overflow-y: auto;">
+        <!-- Resultados da filtragem serão exibidos aqui -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Painel Kanban -->
+  <div class="painel">
+    <!-- Coluna: Aberto -->
+    <div class="coluna-painel aberto-coluna-painel">
+      <div class="titulo-coluna aberto-titulo">
+        Aberto (<span class="contador">0</span>)<br><br>
+        Organizar por:
+        <button class="ordenar" data-sort="data">Data</button>
+        <button class="ordenar" data-sort="prioridade">Prioridade</button>
+      </div>
+      <div class="tarefa"></div>
+    </div>
+
+    <!-- Coluna: Em Andamento -->
+    <div class="coluna-painel andamento-coluna-painel">
+      <div class="titulo-coluna andamento-titulo">
+        Em Andamento (<span class="contador">0</span>)<br><br>
+        Organizar por:
+        <button class="ordenar" data-sort="data">Data</button>
+        <button class="ordenar" data-sort="prioridade">Prioridade</button>
+      </div>
+      <div class="tarefa"></div>
+    </div>
+
+    <!-- Coluna: Concluído -->
+    <div class="coluna-painel concluido-coluna-painel">
+      <div class="titulo-coluna concluido-titulo">
+        Concluído (<span class="contador">0</span>)<br><br>
+        Organizar por:
+        <button class="ordenar" data-sort="data">Data</button>
+        <button class="ordenar" data-sort="prioridade">Prioridade</button>
+      </div>
+      <div class="tarefa"></div>
+    </div>
+
+    <!-- Coluna: Done Done -->
+    <div class="coluna-painel done-coluna-painel">
+      <div class="titulo-coluna done-titulo">
+        Done Done (<span class="contador">0</span>)<br><br>
+        Organizar por:
+        <button class="ordenar" data-sort="data">Data</button>
+        <button class="ordenar" data-sort="prioridade">Prioridade</button>
+      </div>
+      <div class="tarefa"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+   <footer></footer>
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>

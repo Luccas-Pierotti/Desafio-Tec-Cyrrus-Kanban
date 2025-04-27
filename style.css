@@ -1,0 +1,327 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+/* Estilização global */
+body {
+    background-color: #eeeeee;
+    margin: 0;
+
+}
+header{
+   background-color: #0c6d87;   
+
+}
+h1{
+    text-align: center;
+    padding: 10px;
+    
+}
+
+/* Botões principais */
+#openModal,
+#openFilterModal {
+    margin: 20px;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#openModal {
+    background-color: #3f51b5;
+}
+
+#openFilterModal {
+    background-color: #13a879;
+}
+
+/* Painel principal */
+.painel {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.coluna-painel {
+    background-color: #f5f5f5;
+    width: 18%;
+    min-height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-coluna {
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding: 5px;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.tarefa {
+    flex-grow: 1;
+    min-height: 100px;
+    padding: 10px;
+}
+
+/* Cards dentro das colunas */
+.card {
+    background-color: #ffffff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    transition: transform 0.2s;
+}
+
+.card h3 {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.card p {
+    font-size: 14px;
+}
+
+.drag-over {
+    background-color: #d0f0ff !important;
+}
+
+.dragging {
+    opacity: 0.5;
+    transform: scale(1.02);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.close:hover {
+    color: #f44336;
+}
+
+/* Formulários e botões */
+form button {
+    padding: 8px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    margin-right: 10px;
+}
+
+form button#closeModalBtn {
+    background-color: #ccc;
+    color: #333;
+}
+
+/* Estilização por estado das colunas */
+.aberto-titulo {
+    background-color: #f44336;
+}
+
+.andamento-titulo {
+    background-color: #FF9800;
+}
+
+.concluido-titulo {
+    background-color: #4c57af;
+}
+
+.done-titulo {
+    background-color: #8BC34A;
+}
+
+.aberto-coluna-painel {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.andamento-coluna-painel {
+    background-color: rgba(251, 255, 0, 0.2);
+}
+
+.concluido-coluna-painel {
+    background-color: rgba(0, 153, 255, 0.2);
+}
+
+.done-coluna-painel {
+    background-color: rgba(38, 255, 0, 0.2);
+}
+
+/* Subtarefas */
+.subtarefas-titulo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.subtarefas {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.botao-adicionar-subtarefa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4b4b4b;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-adicionar-subtarefa:hover {
+    background-color: #333;
+}
+
+/* Inputs e selects */
+input[type="date"] {
+    width: 150px;
+    height: 40px;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.priority,
+.estado {
+    border-radius: 4px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.priority {
+    width: 90px;
+}
+
+.estado {
+    width: 120px;
+}
+
+textarea {
+    min-width: fit-content;
+    min-height: fit-content;
+    max-width: 300px;
+    max-height: 150px;
+}
+
+/*  input ordenar */
+.ordenar {
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 17px;
+    list-style: none;
+    padding: 1px 4px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.ordenar:hover {
+    background-color: #F3F4F6;
+    text-decoration: none;
+    transition-duration: 0.1s;
+}
+
+.ordenar:disabled {
+    background-color: #FAFBFC;
+    border-color: rgba(27, 31, 35, 0.15);
+    color: #959DA5;
+    cursor: default;
+}
+
+.ordenar:active {
+    background-color: #EDEFF2;
+    box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+    transition: none 0s;
+}
+
+.ordenar:focus {
+    outline: 1px transparent;
+}
+
+.ordenar:before {
+    display: none;
+}
+
+.ordenar:-webkit-details-marker {
+    display: none;
+}
