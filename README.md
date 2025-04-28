@@ -29,7 +29,6 @@
 ## 5 - Você usou alguma ferramenta ou inteligência artificial para ajudar? Como?
 
 Sim, utilizei a documentação oficial da linguagem, pesquisa no Google e o ChatGPT para esclarecer dúvidas, sugerir soluções para problemas específicos, corrigir bugs, otimizar lógicas e organizar o código.
- esse tabom, deixe de um jeito pra eu deixar no readme do projeto no github
  
 ## Sobre o Projeto
 Este projeto é um quadro Kanban desenvolvido para o desafio técnico da Cyrrus. A aplicação permite a criação, movimentação e filtragem de tarefas em diferentes estágios (colunas) de forma intuitiva através de drag and drop.
